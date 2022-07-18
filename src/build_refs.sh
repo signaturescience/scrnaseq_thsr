@@ -44,7 +44,7 @@ covid_gtf="reference_sources/SARSCoV2.gtf"
 # Following instruction for multi-genome referece at:
 #    https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/advanced/references#multi
 genome="ChlSab1.1"
-cellranger mkref --genome="$genome" --fasta="$monkey_fasta" --genes="$monkey_gtf" --genome="SARS_CoV2" --fasta="$covid_fasta" --genes="$covid_gtf"  
+cellranger mkref --nthreads=32 --genome="$genome" --fasta="$monkey_fasta" --genes="$monkey_gtf" --genome="SARS_CoV2" --fasta="$covid_fasta" --genes="$covid_gtf"  
 
 
 
