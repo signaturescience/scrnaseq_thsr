@@ -31,8 +31,7 @@ common pitfalls and successfully perform meaningful scRNAseq analyses.
 
 ## Analysis replicated
 
-We intend to replicate the scRNAseq analysis described in Speranza *et
-al.* [Speranza *et
+We intend to replicate the scRNAseq analysis described in [Speranza *et
 al.*](https://www.science.org/doi/full/10.1126/scitranslmed.abe8146)
 which uses scRNAseq to identify the specific cell types in which most
 SARS-CoV-2 replication was occurring in the lungs of African Green
@@ -69,3 +68,49 @@ in a rapidly expanding subfield of genomics and bioinformatics.
 6.  If time allows, experiment with alternative software
     tools/algorithms and compare results.  
 7.  Write a short whitepaper describing analysis
+
+# Procedures Summary
+
+## Software installation
+
+All software installed to darwin server.
+
+### SRA Toolkit Install (v3.0.0)
+
+Used for downloading the data and dumping to FASTQ format.
+
+    #Install SRA toolkit
+    # DOWNLOAD
+    wget --output-document sratoolkit.tar.gz https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-centos_linux64.tar.gz
+    # EXTRACT
+    tar -vxzf sratoolkit.tar.gz
+    # ADD TO PATH
+    export PATH=$PATH:$PWD/sratoolkit.3.0.0-centos_linux64/bin
+    # TEST
+    which fastq-dump
+    # ~/software/sratoolkit.3.0.0-centos_linux64/bin/fastq-dump
+
+### Bioawk
+
+Used for checks on the downloaded FASTQ files.
+
+    conda install -c bioconda bioawk
+
+### Seurat
+
+Seurat is an R package for scRNAseq analysis. Because the current
+version (Seurat 4.1.1) is only compatible with R 4.0 or greater, we rand
+into a compatibility issue with the darwin server’s R install (R
+v3.6.0).
+
+## Data acquisition
+
+-   Data files for Sperenza *et al.* SRA project SRP278622 were
+    downloaded using SRA Toolkit v3.0.0, using the `prefetch` and
+    `fasterq-dump` commands (see [get\_data.sh](./data/raw/get_data.sh))
+-   SRA accession list (for batch download), downloaded from: [SRA
+    Project Page -
+    SRP278622](https://www.ncbi.nlm.nih.gov/sra?term=SRP278622)
+-   SRA Run Info (file/run metadata) downloaded from [SRA Experiment
+    link for Project -
+    PRJNA658976](https://www.ncbi.nlm.nih.gov/sra?linkname=bioproject_sra_all&from_uid=658976)
