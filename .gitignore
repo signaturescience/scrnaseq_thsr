@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+data/raw/fastq/*fastq.gz
+data/raw/sra/*
+data/raw/ctab/*
+data/raw/fastq_ctable.txt
+data/raw/info_counts.txt
