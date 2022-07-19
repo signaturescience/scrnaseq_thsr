@@ -7,3 +7,6 @@ data/raw/sra/*
 data/raw/ctab/*
 data/raw/fastq_ctable.txt
 data/raw/info_counts.txt
+data/raw/sperenza_counts/*
+data/processed/fastq/*
+data/processed/cellranger/*

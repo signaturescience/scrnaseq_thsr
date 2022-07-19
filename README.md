@@ -122,7 +122,7 @@ v3.6.0).
 
 -   Data files for Sperenza *et al.* SRA project SRP278622 were
     downloaded using SRA Toolkit v3.0.0, using the `prefetch` and
-    `fasterq-dump` commands (see [get\_data.sh](./data/raw/get_data.sh))
+    `fasterq-dump` commands (see [get\_data.sh](./src/get_data.sh))
 -   SRA accession list (for batch download), downloaded from: [SRA
     Project Page -
     SRP278622](https://www.ncbi.nlm.nih.gov/sra?term=SRP278622)
@@ -134,4 +134,11 @@ v3.6.0).
 
 -   Reference file with both the African Green Monkey (ChlSab1.1) and
     COVID (SARS\_CoV2) genome builds was created using the code in
-    [build\_refs.sh](./data/raw/build_refs.sh)).
+    [build\_refs.sh](./src/build_refs.sh)).
+-   For guidance and sanity checking, the feature matrix for the
+    original study was downloaded from [GEO
+    GSE156755](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE156755).  
+-   In the interest of time, the QC filtering and trimming steps were
+    skipped, trusting that the alignment filters will sort this out.
+-   Code used to pre-process the data and run Cell Ranger can be found
+    in [cellranger.sh](./src/cellranger.sh).
