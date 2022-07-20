@@ -58,6 +58,15 @@ RUNLIST=$(cat $WDIR/data/raw/sra_sample_data.tsv | grep $SAMP | cut -f 1 | tr "\
 cellranger count --id=$SAMP --fastqs=${SAMPFQ} --sample=$RUNLIST --transcriptome=$REF --localmem 600
 done
 
-
+#Given the differences in the custom reference, we don't expect a perfect match,
+#But let's do some sanity checking against the original analysis counts vs. our counts.
+#zcat $WDIR/data/processed/cellranger/GSM4743546/outs/filtered_feature_bc_matrix/matrix.mtx.gz | wc -l
+#3826862
+#zcat $WDIR/data/processed/cellranger/GSM4743546/outs/filtered_feature_bc_matrix/features.tsv.gz | wc -l
+#19194
+#zcat ../../raw/sperenza_counts/16451_filtered_feature_bc_matrix/matrix.mtx.gz | wc -l
+#4049089
+#zcat ../../raw/sperenza_counts/16451_filtered_feature_bc_matrix/features.tsv.gz | wc -l
+#19176
 
 
