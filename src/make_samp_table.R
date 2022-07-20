@@ -6,7 +6,6 @@
 
 #Load modules
 library("tidyverse")
-library("rsnps")
 
 # Load SRA data
 sra_dat <- read_csv(here::here("data/raw","SraRunInfo.csv"))
