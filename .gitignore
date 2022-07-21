@@ -10,3 +10,4 @@ data/raw/info_counts.txt
 data/raw/sperenza_counts/*
 data/processed/fastq/*
 data/processed/cellranger/*
+data/raw/GSE156755*
