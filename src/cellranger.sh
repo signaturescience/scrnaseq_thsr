@@ -58,6 +58,11 @@ RUNLIST=$(cat $WDIR/data/raw/sra_sample_data.tsv | grep $SAMP | cut -f 1 | tr "\
 cellranger count --id=$SAMP --fastqs=${SAMPFQ} --sample=$RUNLIST --transcriptome=$REF --localmem 600
 done
 
+#Aggregate the samples by tissue type using cellranger aggr
+#RUN AFTER RUNNING make_aggr_table.R.  Table linking samples to file paths is required.
+cellranger aggr --id Lung --csv $WDIR/data/processed/lung_aggr.csv
+cellranger aggr --id MediLymphNode --csv $WDIR/data/processed/mln_aggr.csv
+
 #Given the differences in the custom reference, we don't expect a perfect match,
 #But let's do some sanity checking against the original analysis counts vs. our counts.
 #zcat $WDIR/data/processed/cellranger/GSM4743546/outs/filtered_feature_bc_matrix/matrix.mtx.gz | wc -l
